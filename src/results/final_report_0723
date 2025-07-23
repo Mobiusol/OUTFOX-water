@@ -1,0 +1,69 @@
+{
+  "performance_history": [
+    {
+      "epoch": 1,
+      "accuracy": "42.38%",
+      "f1": "31.64%",
+      "watermarked_recall": "28.00%",
+      "original_recall": "55.45%",
+      "average_recall": "41.73%",
+      "success_rate": "9.50%",
+      "avg_semantic_similarity": "0.966",
+      "high_semantic_cases": 19,
+      "avg_overall_quality": "0.891",
+      "failure_count": 181,
+      "failure_breakdown": {
+        "detection_failures": 91,
+        "semantic_failures": 37,
+        "mixed_failures": 53
+      }
+    },
+    {
+      "epoch": 2,
+      "accuracy": "52.62%",
+      "f1": "58.97%",
+      "watermarked_recall": "71.50%",
+      "original_recall": "35.45%",
+      "average_recall": "53.48%",
+      "success_rate": "13.50%",
+      "avg_semantic_similarity": "0.967",
+      "high_semantic_cases": 46,
+      "avg_overall_quality": "0.894",
+      "failure_count": 200,
+      "failure_breakdown": {
+        "detection_failures": 135,
+        "semantic_failures": 51,
+        "mixed_failures": 14
+      }
+    },
+    {
+      "epoch": 3,
+      "accuracy": "53.10%",
+      "f1": "58.53%",
+      "watermarked_recall": "69.50%",
+      "original_recall": "38.18%",
+      "average_recall": "53.84%",
+      "success_rate": "15.00%",
+      "avg_semantic_similarity": "0.964",
+      "high_semantic_cases": 76,
+      "avg_overall_quality": "0.894",
+      "failure_count": 200,
+      "failure_breakdown": {
+        "detection_failures": 181,
+        "semantic_failures": 13,
+        "mixed_failures": 6
+      }
+    }
+  ],
+  "quality_distribution": {
+    "min": 0.8604446577499287,
+    "max": 0.9109468662684868,
+    "mean": 0.8944208791279327,
+    "median": 0.8939303114207896,
+    "high_quality_ratio": 1.0
+  },
+  "final_examples_count": {
+    "success": 76,
+    "failure": 200
+  }
+}

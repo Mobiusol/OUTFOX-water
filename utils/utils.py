@@ -1,62 +1,30 @@
 """
-重构后的工具模块 - 保持向后兼容
-本文件现在主要作为重构后模块的统一入口点
-保持 make_prompt_for_detection 和 make_prompt_for_watermark_generation 不变
+遗留utils模块 - 仅用于向后兼容
+新代码请使用模块化的导入方式
 """
+import warnings
 
-# 重要函数保持不变，确保向后兼容
-from .base_utils import (
-    load_pkl, save_pkl, json2dict, truncate_text, 
-    string2token_nums, make_mixed_data
+# 发出弃用警告
+warnings.warn(
+    "utils.utils模块已弃用，请使用新的模块化导入方式",
+    DeprecationWarning,
+    stacklevel=2
 )
 
-from .api_service import (
-    completions_with_backoff, generation_by_qwen, 
-    call_model_api, process_reply_from_qwen, remove_common_prefixes
-)
+# 为向后兼容保留的导入
+from utils.file_utils import FileManager
+from utils.text_utils import TextProcessor
+from utils.metrics_utils import MetricsCalculator
+from services.api_service import APIServiceFactory
 
-from .embedding_service import (
-    get_cached_embedding, get_comprehensive_similarity
-)
+# 创建全局实例以保持向后兼容
+_file_manager = FileManager()
+_text_processor = TextProcessor()
+_metrics_calculator = MetricsCalculator()
 
-from .metrics import (
-    compute_three_recalls, compute_metrics
-)
-
-from .prompt_generator import (
-    make_prompt_for_detection, make_prompt_for_watermark_generation,
-    convert_to_detector_examples
-)
-
-from .confidence_calculators import (
-    get_confidence_voting
-)
-
-from .watermark_validator import (
-    identify_watermark_effectiveness
-)
-
-from .similarity_service import (
-    find_similar_cases
-)
-
-from .config import COMMON_PREFIXES
-
-# 向后兼容的全局变量
-embedding_cache = {}
-
-# 重新导出所有重要函数，确保向后兼容
-__all__ = [
-    'load_pkl', 'save_pkl', 'json2dict', 'truncate_text', 
-    'string2token_nums', 'make_mixed_data',
-    'completions_with_backoff', 'generation_by_qwen', 
-    'call_model_api', 'process_reply_from_qwen', 'remove_common_prefixes',
-    'get_cached_embedding', 'get_comprehensive_similarity',
-    'compute_three_recalls', 'compute_metrics',
-    'make_prompt_for_detection', 'make_prompt_for_watermark_generation',
-    'convert_to_detector_examples',
-    'get_confidence_voting',
-    'identify_watermark_effectiveness',
-    'find_similar_cases',
-    'COMMON_PREFIXES'
-]
+# 向后兼容的函数别名
+load_pkl = _file_manager.load_pkl
+save_pkl = _file_manager.save_pkl
+get_cached_embedding = _text_processor.get_cached_embedding
+find_similar_cases = _text_processor.find_similar_cases
+compute_metrics = _metrics_calculator.compute_metrics
