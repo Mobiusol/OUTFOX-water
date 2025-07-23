@@ -44,6 +44,8 @@ class WatermarkConfig:
                 "**Watermarked**:",
                 "**Watermarked version:**",
                 "**Watermarked Version:**",
+                "**Watermarked text:**",
+                "**Watermarked Text:**",
             ]
 
 @dataclass
