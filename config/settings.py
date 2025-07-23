@@ -5,7 +5,7 @@ from typing import List
 @dataclass
 class APIConfig:
     """API配置"""
-    dashscope_api_key: str = "sk-23fafa4f9e4244e7bd2c4b6c118fe8ed"
+    dashscope_api_key: str = " "#填自己的
     dashscope_endpoint: str = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
     model_name: str = "qwen-turbo"
     default_temperature: float = 1.2
